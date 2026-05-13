@@ -1,14 +1,10 @@
 
 /**
  * Modelo que representa un producto de la tienda.
- * El id se asigna automáticamente — no lo ingresa el usuario.
- *
- * En Spring Boot con JPA este id lo va a manejar la base de datos.
- * Por eso más adelante vamos a agregar un constructor vacío y @Entity.
  */
 public class Producto {
 
-    // Contador compartido por todos los objetos — genera ids únicos
+    // Generador automático de IDs
     private static int contadorId = 1;
 
     private int id;
@@ -17,7 +13,7 @@ public class Producto {
     private int stock;
 
     /**
-     * Constructor principal. El id se asigna automáticamente.
+     * Constructor principal
      */
     public Producto(String nombre, double precio, int stock) {
         this.id = contadorId++;
@@ -26,23 +22,41 @@ public class Producto {
         this.stock = stock;
     }
 
-    // Getters — necesarios para acceder a los datos desde otras clases
-    public int getId()        { return id; }
-    public String getNombre() { return nombre; }
-    public double getPrecio() { return precio; }
-    public int getStock()     { return stock; }
+    // Getters
+    public int getId() {
+        return id;
+    }
 
-    // Setters — permiten modificar precio y stock después de la creación
-    public void setPrecio(double precio) { this.precio = precio; }
-    public void setStock(int stock)      { this.stock = stock; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    // Setters
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
     /**
-     * Se llama automáticamente cuando hacemos System.out.println(producto).
+     * Representación visual del producto
      */
     @Override
     public String toString() {
-        return "[ID: " + id + "] " + nombre +
+
+        return " Producto #" + id +
+               " | Nombre: " + nombre +
                " | Precio: $" + precio +
-               " | Stock: " + stock;
+               " | Stock disponible: " + stock;
     }
 }
