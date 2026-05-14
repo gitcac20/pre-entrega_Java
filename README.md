@@ -94,7 +94,7 @@ public class Main {
 # ▶️ Cómo ejecutar
 
 ```bash
-git clone https://github.com/gitcac20/pre-entrega_Java_facil.git
+git clone https://github.com/gitcac20/pre-entrega_Java.git
 ```
 
 Luego abrir en un IDE y ejecutar:
